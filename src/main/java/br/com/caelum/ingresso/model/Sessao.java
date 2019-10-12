@@ -2,11 +2,24 @@ package br.com.caelum.ingresso.model;
 
 import java.time.LocalTime;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+@Entity
 public class Sessao {
-
+	public Sessao() {
+		
+	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)// gera é o bco de dados responsabilidade do bco.
 	private Integer Id;
+	
 	private LocalTime horario;
+	@ManyToOne // relacionamento entre a sessao e a classe sala Sessao(n)  --> Sala(1)
 	private Sala sala;
+	@ManyToOne	
 	private Filme filme;
 	
 	public Sessao(LocalTime horario, Filme filme, Sala sala) {

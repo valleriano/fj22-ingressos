@@ -70,4 +70,11 @@ public class Sala {
         Optional<Lugar> optional = this.lugares.stream().filter((x) -> fileira.equals(x.getFileira()) && posicao.equals(x.getPosicao())).findFirst();
         return optional.get().getId();
     }
+
+	@Override
+	public String toString() {
+		return "Sala [id=" + id + ", nome=" + nome + ", lugares=" + lugares + "]";
+	}
+    
+    
 }
